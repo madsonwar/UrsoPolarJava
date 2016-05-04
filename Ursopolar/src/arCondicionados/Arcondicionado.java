@@ -1,9 +1,11 @@
 package arCondicionados;
 import interfaces.Servicos;
-public abstract class Arcondicionado implements Servicos{
+import interfaces.Device;
+public abstract class Arcondicionado implements Servicos,Device{
 	private String marca;
+	
 	private float consumoDeEnergia;
-	private String gasRefrigerante;
+	private  Estados estadosDoAr;
 	private float peso;
 	private float dimencoes;
 	private float potenciaDeRefrigeracao;
@@ -12,17 +14,18 @@ public abstract class Arcondicionado implements Servicos{
 	 Arcondicionado(){
 		this.marca = "Desconhecido";
 		this.consumoDeEnergia = 0;
-		this.gasRefrigerante = "Desconhecido";
+
 		this.peso = 0;
 		this.dimencoes = 0;
 		this.potenciaDeRefrigeracao = 0;
 		this.precoDoProduto =  0;
 		
 	}
-	Arcondicionado(String entradaMarca,float entradaConsumoDeEnergia,String entradagasRefrigerante,float entradaPeso,float entradaDimencoes,float entradaPotenciaDeRefrigeracao,float entradaPrecoDoProduto){
+	Arcondicionado(String entradaMarca,float entradaConsumoDeEnergia,String entradagasRefrigerante,float entradaPeso,
+			float entradaDimencoes,float entradaPotenciaDeRefrigeracao,float entradaPrecoDoProduto){
 		this.marca = entradaMarca;
 		this.consumoDeEnergia = entradaConsumoDeEnergia;
-		this.gasRefrigerante = entradagasRefrigerante;
+	
 		this.peso = entradaPeso;
 		this.dimencoes = entradaDimencoes;
 		this.potenciaDeRefrigeracao = entradaPotenciaDeRefrigeracao;
@@ -32,7 +35,7 @@ public abstract class Arcondicionado implements Servicos{
 	Arcondicionado(Arcondicionado ar){
 		this.marca = ar.marca;
 		this.consumoDeEnergia = ar.consumoDeEnergia;
-		this.gasRefrigerante = ar.gasRefrigerante;
+	
 		this.peso = ar.peso;
 		this.dimencoes = ar.dimencoes;
 		this.potenciaDeRefrigeracao = ar.potenciaDeRefrigeracao;
@@ -57,12 +60,7 @@ public abstract class Arcondicionado implements Servicos{
 	public void setPeso(float peso) {
 		this.peso = peso;
 	}
-	public String getGasRefrigerante() {
-		return gasRefrigerante;
-	}
-	public void setGasRefrigerante(String gasRefrigerante) {
-		this.gasRefrigerante = gasRefrigerante;
-	}
+	
 	public float getDimencoes() {
 		return dimencoes;
 	}
@@ -80,5 +78,11 @@ public abstract class Arcondicionado implements Servicos{
 	}
 	public void setPrecoDoProduto(float precoDoProduto) {
 		this.precoDoProduto = precoDoProduto;
+	}
+	public Estados getEstadosDoAr() {
+		return estadosDoAr;
+	}
+	public void setEstadosDoAr(Estados estadosDoAr) {
+		this.estadosDoAr = estadosDoAr;
 	}
 }
